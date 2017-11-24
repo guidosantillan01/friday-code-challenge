@@ -50,6 +50,9 @@ node apiserver/server.js
 /*
   Will return an array of models.
 
+  Params:
+  * make: string (required)
+
   Example of response:
   [{
     "make": string,
@@ -60,6 +63,10 @@ node apiserver/server.js
 'http://localhost:8080/api/vehicles'
 /*
   Will return an array of models.
+
+  Params:
+  * make: string (required)
+  * model: string (required)
 
   Example of response:
   [{
