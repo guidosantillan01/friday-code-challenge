@@ -1,122 +1,86 @@
 Frontend Developer Candidate Assignment
-=======================================
+==
 
-Build a simple web app that allows a user to select their car from a directory of registered cars.
-This data will be provided by the api server in this repo.
-The api provides a list of available makes, models of each make and specific cars for each model with horsepower and engine capacity info.
+## How to submit
 
-# Requirements
-- Make a mobile first and desktop-friendly UI.
-- Build your own styles, don't use any CSS framework like Bootstrap.
-- The app should work on the latest version of all major browsers
+ 1.	Add your work to a private git repository on bitbucket.org
+ 2.	Grant read access to user 'xxx' to your repository
+ 3.	We will review your work and contact you in maximum 1 week
 
-# Considerations
-- Think of a user-friendly way to find and select a vehicle.
-- Please focus on timeliness and completeness - if you have to choose between delivering 100% of the first feature + 0% of the second, and 50%-50%, please choose the first option.
-- The API calls will not always return a successful result (200 OK), be aware of this! Do not modify the provided server.
-- The provided API has only a fraction of the vehicles that we would have in a production server.
+## Assignment
+
+Build a simple web app where the user can select his vehicle using the data provided in the api server. This includes:
+
+1. Think in the easiest way for the user select his vehicle.
+2. In the end, the selected vehicle should be submited to our API.
+3. As a use case, consider that the user wants to get a "FORD - Fiesta - Limousine, Benzin, 1119 cc, 40/54 KW/PS".
+
+### Considerations
+- Please focus on timeliness and completeness - if you have to choose between delivering 100% of the first feature + 0% of the second, and 50%-50%, please choose the first option
+- The provided API server will not always return a successfull result, be aware of this! Do not modify the provided server.
+- The provided API has only a fraction of the vehicles that we would have in production.
 - Make it easy to build and run
-- No need to cover everything but having some unit tests would be appreciated.
-- Think of this app as a real project where you need to consider maintainability.
+- No need to cover everything but having some unit test would be appreciated.
+- Think this app as a real project where you need to consider maintenability.
 - Only use 3rd party components if there is good reasoning for it. Please justify any components used.
-- Don't be afraid to surprise us!
 
-# How to submit
+### Requirements
+- Make it mobile first and Desktop friendly UI.
+- Don't use any UI library as bootstrap or such.
+- The app should work in all major browser (latest version)
 
-1. Add your work to a private git repository on [bitbucket](bitbucket.org).
-2. Grant read access to user `xxx` to your repository.
-3. Send us a link to your repo. We will review your work and contact you in **maximum 1 week**
+## API Server
 
-# Running The Server
+You can run the provided api server by running:
 
-You will need node.js version 7.6 or higher
-
-```bash
+``` javascript
 node apiserver/server.js
-```
 
-# API Endpoints
+'http://localhost:8080/api/makes'
+/*
+  Will return an array of makes.
 
-## http://localhost:8080/api/makes
+  Example of response:
+  [{
+    "make": string
+  }]
+*/
 
-Fetches the available car makes to choose from.
-### Params
-none
+'http://localhost:8080/api/models'
+/*
+  Will return an array of models.
 
-### Return value
-An array of strings, each representing a unique car make.
+  Params:
+  * make: string (required)
 
-### Example request
+  Example of response:
+  [{
+    "make": string,
+    "model": string
+  }]
+*/
 
-`GET http://localhost:8080/api/makes`
+'http://localhost:8080/api/vehicles'
+/*
+  Will return an array of models.
 
-### Example response
-```json
-[
-  "Ford",
-  "Opel",
-  ...
-]
-```
+  Params:
+  * make: string (required)
+  * model: string (required)
 
-## http://localhost:8080/api/models
-
-Fetches the available car models for the specified make.
-
-### Params
-  * make: string *(required)*
-
-### Return value
-
-An array of strings, each representing a unique model of the specified make.
-
-### Example Request
-`GET http://localhost:8080/api/models?make=Ford`
-
-### Example response
-```json
-[
-  "Explorer",
-  "Fiesta",
-  ...
-]
-```
-
-## http://localhost:8080/api/vehicles
-
-Fetches the available registered cars for the specified make and model.
-
-### Params
-  * make: string *(required)*
-  * model: string *(required)*
-
-### Return value
-An Array of objects with the following properties:
-
-* make: string `// the make of the car`
-* model: string `// the model of the car`
-* enginePowerPS: number `// engine power in Horsepower units`
-* enginePowerPW: number `// engine power in KiloWatts`
-* fuelType: string `// fuel type`
-* bodyType: string `// body type`
-* engineCapacity: number `// engine capacity in cc`
-
-### Example Request
-
-`GET http://localhost:8080/api/vehicles?make=Ford&model=Fiesta`
-
-### Example response
-```json
-[
-  {
-    "make": 'Ford',
-    "model": 'Fiesta',
-    "enginePowerPS": 54,
-    "enginePowerKW": 40,
-    "fuelType": 'Diesel',
-    "bodyType": 'Limousine',
-    "engineCapacity": 1119
-  },
-  ...
-]
+  Example of response:
+  [{
+    "make": string,
+    "model": string,
+    "hSN": string,
+    "tSN": string,
+    "enginePowerPS": number,
+    "enginePowerKW": number,
+    "fuelType": string,
+    "bodyType": string,
+    "engineCapacity": number,
+    "gDVLabel": string,
+    "displayName": string
+  }]
+*/
 ```

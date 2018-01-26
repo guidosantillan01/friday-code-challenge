@@ -2,7 +2,7 @@ const http = require('http');
 const url = require('url');
 
 class HttpError extends Error {
-  constructor(code, message = 'Uh oh, something went wrong.') {
+  constructor(code, message = 'Uh oh something went wrong.') {
     super(`${message} HTTP code ${code}`);
     this.code = code;
   }
@@ -17,7 +17,7 @@ const vehicles = require('./vehicles.json');
 const server = http.createServer((req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Request-Method', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT');
   res.setHeader('Access-Control-Allow-Headers', '*');
 
   // all cors okay.
@@ -65,17 +65,12 @@ function handleGet(req, res, data, filters) {
     throw new HttpError(503);
   }
 
-  let filteredData = data;
   if (filters) {
-    filteredData = filterData(req, data, filters);
-
-    if(data === models) {
-      filteredData = filteredData.map(({make, model}) => model);
-    }
+    data = filterData(req, data, filters);
   }
 
   res.writeHead(200, { "Content-Type": "application/json" });
-  res.write(JSON.stringify(filteredData, 0, 2));
+  res.write(JSON.stringify(data, 0, 2));
   res.end();
 }
 
@@ -83,7 +78,7 @@ function filterData(req, data, properties) {
   const urlParts = url.parse(req.url, true);
 
   if (!properties.every(property => urlParts.query[property])) {
-    throw new HttpError(422, `You must specify the following parameters: ${properties.join(', ')}.`);
+    throw new HttpError(422, `You must send ${properties.join(', ')}.`);
   }
 
   return data.filter(item =>
