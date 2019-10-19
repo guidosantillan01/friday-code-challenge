@@ -23,8 +23,8 @@ The api provides a list of available makes, models of each make and specific car
 
 # How to submit
 
-1. Add your work to a private git repository on [bitbucket](bitbucket.org).
-2. Grant read access to user `xxx` to your repository.
+1. Add your work to a private git repository on [bitbucket](bitbucket.org) or [github](github.com).
+2. Grant read access to user `acidio.alan@friday.de` to your repository.
 3. Send us a link to your repo. We will review your work and contact you in **maximum 1 week**
 
 # Running The Server
