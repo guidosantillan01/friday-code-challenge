@@ -6,10 +6,9 @@ const VehiclesList = ({ vehicles }) => {
   return (
     <div>
       <h2>List of vehicles</h2>
-      <VehicleItem />
-      <VehicleItem />
-      <VehicleItem />
-      <VehicleItem />
+      {vehicles.map(vehicle => {
+        return <VehicleItem vehicle={vehicle} />;
+      })}
     </div>
   );
 };
