@@ -3,8 +3,7 @@ import React from 'react';
 const VehiclesList = ({ vehicles }) => {
   return (
     <div>
-      <h2>Vehicles List</h2>
-      <p>List of vehicles</p>
+      <h2>List of vehicles</h2>
     </div>
   );
 };

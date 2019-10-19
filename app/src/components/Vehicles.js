@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import VehiclesList from './VehiclesList';
+import VehiclesSelector from './VehiclesSelector';
 
 const GET_MAKER_API = 'http://localhost:8080/api/makes';
 const GET_MODEL_API = 'http://localhost:8080/api/model';
@@ -18,7 +19,7 @@ export class Vehicles extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/api/vehicles?make=BMW&model=3er')
+    fetch(GET_VEHICLE_API + '?make=BMW&model=3er')
       .then(res => res.json())
       .then(
         result => {
@@ -39,6 +40,7 @@ export class Vehicles extends Component {
   render() {
     return (
       <div>
+        <VehiclesSelector />
         <VehiclesList vehicles={this.state.vehicles} />
       </div>
     );
