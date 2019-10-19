@@ -9,5 +9,6 @@
 ## Built With
 
 - `create-react-app`
+- `fetch API`
 
 ## Author

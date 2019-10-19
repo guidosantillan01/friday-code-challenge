@@ -14,12 +14,16 @@ export class Vehicles extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      vehicles: []
+      vehicles: [],
+      make: 'Ford',
+      model: 'Fiesta'
     };
   }
 
   componentDidMount() {
-    fetch(GET_VEHICLE_API + '?make=BMW&model=3er')
+    fetch(
+      GET_VEHICLE_API + `?make=${this.state.make}&model=${this.state.model}`
+    )
       .then(res => res.json())
       .then(
         result => {
