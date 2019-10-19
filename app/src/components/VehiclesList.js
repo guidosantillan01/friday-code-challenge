@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class VehiclesList extends Component {
-  render() {
-    return (
-      <div>
-        <h2>Vehicles List</h2>
-      </div>
-    );
-  }
-}
+const VehiclesList = ({ vehicles }) => {
+  return (
+    <div>
+      <h2>Vehicles List</h2>
+      <p>List of vehicles</p>
+    </div>
+  );
+};
 
 export default VehiclesList;
