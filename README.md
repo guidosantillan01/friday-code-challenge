@@ -8,4 +8,6 @@
 
 ## Built With
 
+- `create-react-app`
+
 ## Author
