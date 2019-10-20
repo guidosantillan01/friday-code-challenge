@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import VehiclesList from './VehiclesList';
 import VehiclesSelector from './VehiclesSelector';
 
-const GET_MAKER_API = 'http://localhost:8080/api/makes';
-const GET_MODEL_API = 'http://localhost:8080/api/model';
-const GET_VEHICLE_API = 'http://localhost:8080/api/vehicles';
+const GET_MAKES_API = 'http://localhost:8080/api/makes';
+const GET_MODELS_API = 'http://localhost:8080/api/models';
+const GET_VEHICLES_API = 'http://localhost:8080/api/vehicles';
 
 export class Vehicles extends Component {
   constructor(props) {
@@ -14,15 +14,43 @@ export class Vehicles extends Component {
     this.state = {
       error: null,
       isLoaded: false,
+      makes: [],
+      models: [],
       vehicles: [],
-      make: 'Ford',
-      model: 'Fiesta'
+      userMake: undefined,
+      userModel: undefined
     };
+
+    this.selectVehicleMaker = this.selectVehicleMaker.bind(this);
+    this.fetchMakes = this.fetchMakes.bind(this);
+    this.fetchModels = this.fetchModels.bind(this);
+    this.fetchVehicles = this.fetchVehicles.bind(this);
   }
 
   componentDidMount() {
+    this.fetchMakes();
+  }
+
+  fetchMakes() {
+    fetch(GET_MAKES_API)
+      .then(res => res.json())
+      .then(result => {
+        this.setState({ makes: result });
+      });
+  }
+
+  fetchModels() {
+    fetch(GET_MODELS_API + `?make=${this.state.userMake}`)
+      .then(res => res.json())
+      .then(result => {
+        this.setState({ models: result });
+      });
+  }
+
+  fetchVehicles() {
     fetch(
-      GET_VEHICLE_API + `?make=${this.state.make}&model=${this.state.model}`
+      GET_VEHICLES_API +
+        `?make=${this.state.userMake}&model=${this.state.userModel}`
     )
       .then(res => res.json())
       .then(
@@ -41,10 +69,29 @@ export class Vehicles extends Component {
       );
   }
 
+  selectVehicleMaker(e) {
+    const value = e.target.value;
+    this.setState({ userMake: value }, () => {
+      this.fetchModels();
+    });
+  }
+
+  selectVehicleModel(e) {
+    console.log(e.target.value);
+    this.setState({
+      userModel: e.target.value
+    });
+  }
+
   render() {
     return (
       <div>
-        <VehiclesSelector />
+        <VehiclesSelector
+          makes={this.state.makes}
+          models={this.state.models}
+          selectVehicleMaker={this.selectVehicleMaker}
+          selectVehicleModel={this.selectVehicleModel}
+        />
         <VehiclesList vehicles={this.state.vehicles} />
       </div>
     );
