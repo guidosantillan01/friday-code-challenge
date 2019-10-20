@@ -19,6 +19,16 @@ const VehicleSelector = ({
           </select>
         </label>
       </form>
+
+      <form>
+        <label>
+          <select onChange={selectVehicleModel}>
+            {models.map(model => {
+              return <option value={model}>{model}</option>;
+            })}
+          </select>
+        </label>
+      </form>
     </div>
   );
 };
