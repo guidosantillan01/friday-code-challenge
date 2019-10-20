@@ -22,6 +22,7 @@ export class Vehicles extends Component {
     };
 
     this.selectVehicleMaker = this.selectVehicleMaker.bind(this);
+    this.selectVehicleModel = this.selectVehicleModel.bind(this);
     this.fetchMakes = this.fetchMakes.bind(this);
     this.fetchModels = this.fetchModels.bind(this);
     this.fetchVehicles = this.fetchVehicles.bind(this);
@@ -63,6 +64,7 @@ export class Vehicles extends Component {
         error => {
           this.setState({
             isLoaded: true,
+            vehicles: [],
             error
           });
         }
@@ -70,16 +72,16 @@ export class Vehicles extends Component {
   }
 
   selectVehicleMaker(e) {
-    const value = e.target.value;
-    this.setState({ userMake: value }, () => {
+    const userMake = e.target.value;
+    this.setState({ userMake }, () => {
       this.fetchModels();
     });
   }
 
   selectVehicleModel(e) {
-    console.log(e.target.value);
-    this.setState({
-      userModel: e.target.value
+    const userModel = e.target.value;
+    this.setState({ userModel }, () => {
+      this.fetchVehicles();
     });
   }
 
