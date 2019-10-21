@@ -23,7 +23,6 @@ export class Vehicles extends Component {
 
     this.selectVehicleMaker = this.selectVehicleMaker.bind(this);
     this.selectVehicleModel = this.selectVehicleModel.bind(this);
-    this.fetchVehicles = this.fetchVehicles.bind(this);
   }
 
   componentDidMount() {
@@ -58,28 +57,25 @@ export class Vehicles extends Component {
     }
   };
 
-  fetchVehicles() {
-    fetch(
-      GET_VEHICLES_API +
-        `?make=${this.state.userMake}&model=${this.state.userModel}`
-    )
-      .then(res => res.json())
-      .then(
-        result => {
+  tryToFetchVehicles = async numberOfTries => {
+    try {
+      return await fetch(
+        GET_VEHICLES_API +
+          `?make=${this.state.userMake}&model=${this.state.userModel}`
+      )
+        .then(res => res.json())
+        .then(result => {
           this.setState({
             isLoaded: true,
             vehicles: result
           });
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            vehicles: [],
-            error
-          });
-        }
-      );
-  }
+        });
+    } catch (err) {
+      console.log(numberOfTries);
+      if (numberOfTries === 1) throw err;
+      return await this.tryToFetchVehicles(numberOfTries - 1);
+    }
+  };
 
   selectVehicleMaker(e) {
     const userMake = e.target.value;
@@ -91,7 +87,7 @@ export class Vehicles extends Component {
   selectVehicleModel(e) {
     const userModel = e.target.value;
     this.setState({ userModel }, () => {
-      this.fetchVehicles();
+      this.tryToFetchVehicles(5);
     });
   }
 
