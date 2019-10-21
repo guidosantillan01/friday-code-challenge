@@ -29,8 +29,40 @@ export class Vehicles extends Component {
   }
 
   componentDidMount() {
-    this.fetchMakes();
+    // this.tryTo(this.fetchMakes(), 5);
+    this.tryToFetchMakes(5);
   }
+
+  // handleErrors(res) {
+  //   if (!res.ok) {
+  //     throw Error(res.statusText);
+  //   }
+  //   return res.json();
+  // }
+
+  tryTo = async (fetchFunction, numberOfTries) => {
+    try {
+      return await fetchFunction;
+    } catch (err) {
+      console.log(numberOfTries);
+      if (numberOfTries === 1) throw err;
+      return await this.tryTo(fetchFunction, numberOfTries - 1);
+    }
+  };
+
+  tryToFetchMakes = async numberOfTries => {
+    try {
+      return await fetch(GET_MAKES_API)
+        .then(res => res.json())
+        .then(result => {
+          this.setState({ makes: result });
+        });
+    } catch (err) {
+      console.log(numberOfTries);
+      if (numberOfTries === 1) throw err;
+      return await this.tryToFetchMakes(numberOfTries - 1);
+    }
+  };
 
   fetchMakes() {
     fetch(GET_MAKES_API)
