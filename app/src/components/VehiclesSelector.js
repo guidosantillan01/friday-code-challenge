@@ -14,7 +14,11 @@ const VehicleSelector = ({
         <label>
           <select onChange={selectVehicleMaker}>
             {makes.map(make => {
-              return <option value={make}>{make}</option>;
+              return (
+                <option value={make} key={make}>
+                  {make}
+                </option>
+              );
             })}
           </select>
         </label>
@@ -24,7 +28,11 @@ const VehicleSelector = ({
         <label>
           <select onChange={selectVehicleModel}>
             {models.map(model => {
-              return <option value={model}>{model}</option>;
+              return (
+                <option value={model} key={model}>
+                  {model}
+                </option>
+              );
             })}
           </select>
         </label>
