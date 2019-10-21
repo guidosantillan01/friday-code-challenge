@@ -3,7 +3,7 @@ import React from 'react';
 const VehicleSelector = ({
   makes,
   models,
-  selectVehicleMaker,
+  selectVehicleMake,
   selectVehicleModel
 }) => {
   return (
@@ -12,7 +12,7 @@ const VehicleSelector = ({
 
       <form>
         <label>
-          <select onChange={selectVehicleMaker}>
+          <select onChange={selectVehicleMake}>
             {makes.map(make => {
               return (
                 <option value={make} key={make}>

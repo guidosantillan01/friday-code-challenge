@@ -21,7 +21,7 @@ export class Vehicles extends Component {
       userModel: undefined
     };
 
-    this.selectVehicleMaker = this.selectVehicleMaker.bind(this);
+    this.selectVehicleMake = this.selectVehicleMake.bind(this);
     this.selectVehicleModel = this.selectVehicleModel.bind(this);
   }
 
@@ -77,7 +77,7 @@ export class Vehicles extends Component {
     }
   };
 
-  selectVehicleMaker(e) {
+  selectVehicleMake(e) {
     const userMake = e.target.value;
     this.setState({ userMake }, () => {
       this.tryToFetchModels(5);
@@ -97,7 +97,7 @@ export class Vehicles extends Component {
         <VehiclesSelector
           makes={this.state.makes}
           models={this.state.models}
-          selectVehicleMaker={this.selectVehicleMaker}
+          selectVehicleMake={this.selectVehicleMake}
           selectVehicleModel={this.selectVehicleModel}
         />
         <VehiclesList vehicles={this.state.vehicles} />
