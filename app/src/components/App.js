@@ -2,7 +2,7 @@ import React from 'react';
 
 import Vehicles from './Vehicles';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
