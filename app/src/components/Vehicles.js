@@ -23,7 +23,6 @@ export class Vehicles extends Component {
 
     this.selectVehicleMaker = this.selectVehicleMaker.bind(this);
     this.selectVehicleModel = this.selectVehicleModel.bind(this);
-    this.fetchModels = this.fetchModels.bind(this);
     this.fetchVehicles = this.fetchVehicles.bind(this);
   }
 
@@ -45,13 +44,19 @@ export class Vehicles extends Component {
     }
   };
 
-  fetchModels() {
-    fetch(GET_MODELS_API + `?make=${this.state.userMake}`)
-      .then(res => res.json())
-      .then(result => {
-        this.setState({ models: result });
-      });
-  }
+  tryToFetchModels = async numberOfTries => {
+    try {
+      return await fetch(GET_MODELS_API + `?make=${this.state.userMake}`)
+        .then(res => res.json())
+        .then(result => {
+          this.setState({ models: result });
+        });
+    } catch (err) {
+      console.log(numberOfTries);
+      if (numberOfTries === 1) throw err;
+      return await this.tryToFetchModels(numberOfTries - 1);
+    }
+  };
 
   fetchVehicles() {
     fetch(
@@ -79,7 +84,7 @@ export class Vehicles extends Component {
   selectVehicleMaker(e) {
     const userMake = e.target.value;
     this.setState({ userMake }, () => {
-      this.fetchModels();
+      this.tryToFetchModels(5);
     });
   }
 
