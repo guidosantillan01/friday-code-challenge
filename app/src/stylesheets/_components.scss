@@ -1,27 +1,3 @@
-// // App
-// .App {
-//   text-align: center;
-// }
-
-// .App-logo {
-//   height: 40vmin;
-// }
-
-// .App-header {
-//   background-color: #282c34;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: calc(10px + 2vmin);
-//   color: white;
-// }
-
-// .App-link {
-//   color: #09d3ac;
-// }
-
 // VehicleList
 .v-list__container {
   display: flex;
@@ -34,8 +10,8 @@
 
 // VehicleItem
 .v-item__container {
-  min-width: 15rem;
-  max-width: 20rem;
+  min-width: $min-v-item-width;
+  max-width: $max-v-item-width;
 
   padding: 1.5rem;
   padding-bottom: 0.75rem;
@@ -77,7 +53,6 @@
 .v-item__text {
   font-size: 1.4rem;
   text-align: center;
-  // font-weight: 500;
 
   margin-bottom: 0.4rem;
 }
@@ -95,6 +70,6 @@
 }
 
 .v-item__image {
-  min-width: 15rem;
-  max-width: 20rem;
+  min-width: $min-v-item-width;
+  max-width: $max-v-item-width;
 }
