@@ -6,6 +6,7 @@ import VehiclesSelector from './VehiclesSelector';
 const GET_MAKES_API = 'http://localhost:8080/api/makes';
 const GET_MODELS_API = 'http://localhost:8080/api/models';
 const GET_VEHICLES_API = 'http://localhost:8080/api/vehicles';
+const API_CALL_TRIES = 5;
 
 export class Vehicles extends Component {
   constructor(props) {
@@ -14,19 +15,16 @@ export class Vehicles extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      makes: [],
-      models: [],
+      makes: ['-'],
+      models: ['-'],
       vehicles: [],
       userMake: undefined,
       userModel: undefined
     };
-
-    this.selectVehicleMake = this.selectVehicleMake.bind(this);
-    this.selectVehicleModel = this.selectVehicleModel.bind(this);
   }
 
   componentDidMount() {
-    this.tryToFetchMakes(5);
+    this.tryToFetchMakes(API_CALL_TRIES);
   }
 
   tryToFetchMakes = async numberOfTries => {
@@ -34,7 +32,9 @@ export class Vehicles extends Component {
       return await fetch(GET_MAKES_API)
         .then(res => res.json())
         .then(result => {
-          this.setState({ makes: result });
+          this.setState({
+            makes: ['-', ...result]
+          });
         });
     } catch (err) {
       console.log(numberOfTries);
@@ -48,7 +48,9 @@ export class Vehicles extends Component {
       return await fetch(GET_MODELS_API + `?make=${this.state.userMake}`)
         .then(res => res.json())
         .then(result => {
-          this.setState({ models: result });
+          this.setState({
+            models: ['-', ...result]
+          });
         });
     } catch (err) {
       console.log(numberOfTries);
@@ -77,19 +79,31 @@ export class Vehicles extends Component {
     }
   };
 
-  selectVehicleMake(e) {
+  selectVehicleMake = e => {
     const userMake = e.target.value;
-    this.setState({ userMake }, () => {
-      this.tryToFetchModels(5);
-    });
-  }
+    this.setState(
+      {
+        userMake,
+        userModel: undefined,
+        vehicles: []
+      },
+      () => {
+        this.tryToFetchModels(API_CALL_TRIES);
+      }
+    );
+  };
 
-  selectVehicleModel(e) {
+  selectVehicleModel = e => {
     const userModel = e.target.value;
-    this.setState({ userModel }, () => {
-      this.tryToFetchVehicles(5);
-    });
-  }
+    this.setState(
+      {
+        userModel
+      },
+      () => {
+        this.tryToFetchVehicles(API_CALL_TRIES);
+      }
+    );
+  };
 
   render() {
     return (

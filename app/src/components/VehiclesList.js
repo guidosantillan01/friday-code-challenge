@@ -6,9 +6,13 @@ const VehiclesList = ({ vehicles }) => {
   return (
     <div>
       <div className="v-list__container">
-        {vehicles.map(vehicle => {
-          return <VehicleItem vehicle={vehicle} />;
-        })}
+        {vehicles.length !== 0 ? (
+          vehicles.map(vehicle => {
+            return <VehicleItem vehicle={vehicle} />;
+          })
+        ) : (
+          <p>No vehicles found</p>
+        )}
       </div>
     </div>
   );
