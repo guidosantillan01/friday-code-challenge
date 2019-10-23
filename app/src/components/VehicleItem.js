@@ -9,7 +9,7 @@ const VehicleItem = ({ vehicle }) => {
         <img
           src={autoImage}
           alt="auto"
-          title="Image of an auto"
+          title="auto"
           className="v-item__image"
         />
       </div>

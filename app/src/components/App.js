@@ -4,8 +4,8 @@ import Vehicles from './Vehicles';
 
 function App() {
   return (
-    <div className="App">
-      <h1>FRIDAY Car Selector App</h1>
+    <div className="App__container">
+      <h1 className="App__title">FRIDAY Car Selector App</h1>
       <Vehicles />
     </div>
   );

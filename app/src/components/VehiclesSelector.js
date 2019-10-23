@@ -8,10 +8,10 @@ const VehicleSelector = ({
 }) => {
   return (
     <div>
-      <h2>Selector for Vehicles</h2>
+      <h2 className="App__subtitle">Selector for Vehicles</h2>
 
-      <form>
-        <label>
+      <div className="v-selector__container">
+        <div className="v-selector">
           <select onChange={selectVehicleMake}>
             {makes.map(make => {
               return (
@@ -21,11 +21,9 @@ const VehicleSelector = ({
               );
             })}
           </select>
-        </label>
-      </form>
+        </div>
 
-      <form>
-        <label>
+        <div className="v-selector">
           <select onChange={selectVehicleModel}>
             {models.map(model => {
               return (
@@ -35,8 +33,8 @@ const VehicleSelector = ({
               );
             })}
           </select>
-        </label>
-      </form>
+        </div>
+      </div>
     </div>
   );
 };
