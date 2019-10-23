@@ -99,7 +99,7 @@
 }
 
 .v-item__field {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .v-item__title {
@@ -116,7 +116,11 @@
   text-transform: uppercase;
   letter-spacing: 0.12rem;
 
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .v-item__text {
@@ -141,4 +145,14 @@
 .v-item__image {
   min-width: $min-v-item-width;
   max-width: $max-v-item-width;
+}
+
+.v-item__icon {
+  width: 28px;
+  opacity: 0.5;
+}
+
+.v-item__engine-power {
+  display: flex;
+  justify-content: space-evenly;
 }

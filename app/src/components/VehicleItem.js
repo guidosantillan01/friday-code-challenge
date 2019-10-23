@@ -1,6 +1,10 @@
 import React from 'react';
 
 import autoImage from '../static/auto.png';
+import powerIcon from '../static/power.png';
+import fuelIcon from '../static/fuel.png';
+import bodyIcon from '../static/body.png';
+import capacityIcon from '../static/capacity.png';
 
 const VehicleItem = ({ vehicle }) => {
   return (
@@ -21,29 +25,40 @@ const VehicleItem = ({ vehicle }) => {
       </div>
 
       <div className="v-item__field">
-        <h4 className="v-item__subtitle">Engine Power</h4>
-        <p className="v-item__text">
-          <span className="v-item__value">{vehicle.enginePowerPS}</span>{' '}
-          <span className="v-item__unit">HP</span>
-        </p>
-        <p className="v-item__text">
-          <span className="v-item__value">{vehicle.enginePowerKW}</span>{' '}
-          <span className="v-item__unit">KW</span>
-        </p>
+        <h4 className="v-item__subtitle">
+          Engine Power <img className="v-item__icon" src={powerIcon} />
+        </h4>
+        <div className="v-item__engine-power">
+          <p className="v-item__text">
+            <span className="v-item__value">{vehicle.enginePowerPS}</span>{' '}
+            <span className="v-item__unit">HP</span>
+          </p>
+          <p className="v-item__text">
+            <span className="v-item__value">{vehicle.enginePowerKW}</span>{' '}
+            <span className="v-item__unit">KW</span>
+          </p>
+        </div>
       </div>
 
       <div className="v-item__field">
-        <h4 className="v-item__subtitle">Fuel Type</h4>
+        <h4 className="v-item__subtitle">
+          Fuel Type <img className="v-item__icon" src={fuelIcon} />
+        </h4>
+
         <p className="v-item__text">{vehicle.fuelType}</p>
       </div>
 
       <div className="v-item__field">
-        <h4 className="v-item__subtitle">Vehicle Body Type</h4>
+        <h4 className="v-item__subtitle">
+          Vehicle Body Type <img className="v-item__icon" src={bodyIcon} />
+        </h4>
         <p className="v-item__text">{vehicle.bodyType}</p>
       </div>
 
       <div className="v-item__field">
-        <h4 className="v-item__subtitle">Engine Capacity</h4>
+        <h4 className="v-item__subtitle">
+          Engine Capacity <img className="v-item__icon" src={capacityIcon} />
+        </h4>
         <p className="v-item__text">
           <span className="v-item__value">{vehicle.engineCapacity}</span>{' '}
           <span className="v-item__unit">cc</span>
