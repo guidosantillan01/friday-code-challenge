@@ -2,7 +2,7 @@ import React from 'react';
 
 import VehicleItem from './VehicleItem';
 
-const VehiclesList = ({ vehicles }) => {
+const VehiclesList = ({ vehicles, message }) => {
   return (
     <div>
       <div className="v-list__container">
@@ -10,8 +10,14 @@ const VehiclesList = ({ vehicles }) => {
           vehicles.map(vehicle => {
             return <VehicleItem vehicle={vehicle} />;
           })
+        ) : message ? (
+          <p className="v-list__message">
+            Select your vehicle manufacturer and model!
+          </p>
         ) : (
-          <p>No vehicles found</p>
+          <p className="v-list__message">
+            No vehicles could be found. Try another option.
+          </p>
         )}
       </div>
     </div>

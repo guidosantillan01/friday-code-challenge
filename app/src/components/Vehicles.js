@@ -15,6 +15,7 @@ export class Vehicles extends Component {
     this.state = {
       error: null,
       isLoaded: false,
+      message: true,
       makes: ['-'],
       models: ['-'],
       vehicles: [],
@@ -85,7 +86,8 @@ export class Vehicles extends Component {
       {
         userMake,
         userModel: undefined,
-        vehicles: []
+        vehicles: [],
+        message: false
       },
       () => {
         this.tryToFetchModels(API_CALL_TRIES);
@@ -114,7 +116,10 @@ export class Vehicles extends Component {
           selectVehicleMake={this.selectVehicleMake}
           selectVehicleModel={this.selectVehicleModel}
         />
-        <VehiclesList vehicles={this.state.vehicles} />
+        <VehiclesList
+          vehicles={this.state.vehicles}
+          message={this.state.message}
+        />
       </div>
     );
   }

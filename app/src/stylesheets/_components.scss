@@ -63,6 +63,17 @@
   margin: 2rem 0;
 }
 
+.v-list__message {
+  font-size: 1.2rem;
+  text-align: center;
+
+  color: #2121e6;
+  background-color: #e5eaff;
+
+  width: 80vw;
+  padding: 1.5rem;
+}
+
 // VehicleItem
 .v-item__container {
   min-width: $min-v-item-width;
