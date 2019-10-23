@@ -1,13 +1,13 @@
 import React from 'react';
 
-const selector = (onChangeHandler, data) => {
+const selector = (onChangeHandler, options) => {
   return (
     <div className="v-selector">
       <select onChange={onChangeHandler}>
-        {data.map(d => {
+        {options.map(option => {
           return (
-            <option value={d} key={d}>
-              {d}
+            <option value={option} key={option}>
+              {option}
             </option>
           );
         })}
