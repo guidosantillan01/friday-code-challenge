@@ -1,5 +1,21 @@
 import React from 'react';
 
+const selector = (onChangeHandler, data) => {
+  return (
+    <div className="v-selector">
+      <select onChange={onChangeHandler}>
+        {data.map(d => {
+          return (
+            <option value={d} key={d}>
+              {d}
+            </option>
+          );
+        })}
+      </select>
+    </div>
+  );
+};
+
 const VehicleSelector = ({
   makes,
   models,
@@ -11,29 +27,8 @@ const VehicleSelector = ({
       <h2 className="App__subtitle">Selector for Vehicles</h2>
 
       <div className="v-selector__container">
-        <div className="v-selector">
-          <select onChange={selectVehicleMake}>
-            {makes.map(make => {
-              return (
-                <option value={make} key={make}>
-                  {make}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-
-        <div className="v-selector">
-          <select onChange={selectVehicleModel}>
-            {models.map(model => {
-              return (
-                <option value={model} key={model}>
-                  {model}
-                </option>
-              );
-            })}
-          </select>
-        </div>
+        {selector(selectVehicleMake, makes)}
+        {selector(selectVehicleModel, models)}
       </div>
     </div>
   );
