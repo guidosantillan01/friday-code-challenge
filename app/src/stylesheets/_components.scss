@@ -36,7 +36,8 @@
 .v-item__container {
   min-width: 15rem;
 
-  padding: 1rem;
+  padding: 1.5rem;
+  padding-bottom: 0.75rem;
   margin-right: 2rem;
   margin-bottom: 2rem;
 
@@ -51,17 +52,41 @@
   }
 }
 
+.v-item__field {
+  margin-bottom: 1.25rem;
+}
+
 .v-item__title {
+  font-size: 1.8rem;
+  font-weight: 400;
+
+  margin-bottom: 0.4rem;
 }
 
-.v-item__engine-power {
+.v-item__subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+
+  margin-bottom: 0.4rem;
 }
 
-.v-item__fuel {
+.v-item__text {
+  font-size: 1.4rem;
+  text-align: center;
+  // font-weight: 500;
+
+  margin-bottom: 0.4rem;
 }
 
-.v-item__body {
+.v-item__value {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
 }
 
-.v-item__engine-capacity {
+.v-item__unit {
+  // font-family: 'Courier New', Courier, monospace;
+  font-weight: 300;
 }
