@@ -1,8 +1,19 @@
 import React from 'react';
 
+import autoImage from '../static/auto.png';
+
 const VehicleItem = ({ vehicle }) => {
   return (
     <div className="v-item__container">
+      <div>
+        <img
+          src={autoImage}
+          alt="auto"
+          title="Image of an auto"
+          className="v-item__image"
+        />
+      </div>
+
       <div className="v-item__field">
         <h3 className="v-item__title">
           {vehicle.make} {vehicle.model}
