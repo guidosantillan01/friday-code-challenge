@@ -2,8 +2,8 @@ import React from 'react';
 
 const selector = (onChangeHandler, options) => {
   return (
-    <div className="v-selector">
-      <select onChange={onChangeHandler}>
+    <div>
+      <select onChange={onChangeHandler} className="v-selector">
         {options.map(option => {
           return (
             <option value={option} key={option}>
