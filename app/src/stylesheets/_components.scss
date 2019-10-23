@@ -1,22 +1,67 @@
-.App {
-  text-align: center;
-}
+// // App
+// .App {
+//   text-align: center;
+// }
 
-.App-logo {
-  height: 40vmin;
-}
+// .App-logo {
+//   height: 40vmin;
+// }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+// .App-header {
+//   background-color: #282c34;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+// }
+
+// .App-link {
+//   color: #09d3ac;
+// }
+
+// VehicleList
+.v-list__container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
 }
 
-.App-link {
-  color: #09d3ac;
+// VehicleItem
+.v-item__container {
+  min-width: 15rem;
+
+  padding: 1rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+
+  border-radius: 1rem;
+  box-shadow: 0 1rem 1rem rgba(#000, 0.15);
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    // cursor: pointer;
+  }
+}
+
+.v-item__title {
+}
+
+.v-item__engine-power {
+}
+
+.v-item__fuel {
+}
+
+.v-item__body {
+}
+
+.v-item__engine-capacity {
 }
