@@ -6,6 +6,8 @@ import fuelIcon from '../static/fuel.png';
 import bodyIcon from '../static/body.png';
 import capacityIcon from '../static/capacity.png';
 
+const renderIcons = true;
+
 const VehicleItem = ({ vehicle }) => {
   return (
     <div className="v-item__container">
@@ -26,7 +28,8 @@ const VehicleItem = ({ vehicle }) => {
 
       <div className="v-item__field">
         <h4 className="v-item__subtitle">
-          Engine Power <img className="v-item__icon" src={powerIcon} />
+          Engine Power{' '}
+          {renderIcons && <img className="v-item__icon" src={powerIcon} />}
         </h4>
         <div className="v-item__engine-power">
           <p className="v-item__text">
@@ -42,7 +45,8 @@ const VehicleItem = ({ vehicle }) => {
 
       <div className="v-item__field">
         <h4 className="v-item__subtitle">
-          Fuel Type <img className="v-item__icon" src={fuelIcon} />
+          Fuel Type{' '}
+          {renderIcons && <img className="v-item__icon" src={fuelIcon} />}
         </h4>
 
         <p className="v-item__text">{vehicle.fuelType}</p>
@@ -50,14 +54,16 @@ const VehicleItem = ({ vehicle }) => {
 
       <div className="v-item__field">
         <h4 className="v-item__subtitle">
-          Vehicle Body Type <img className="v-item__icon" src={bodyIcon} />
+          Vehicle Body Type{' '}
+          {renderIcons && <img className="v-item__icon" src={bodyIcon} />}
         </h4>
         <p className="v-item__text">{vehicle.bodyType}</p>
       </div>
 
       <div className="v-item__field">
         <h4 className="v-item__subtitle">
-          Engine Capacity <img className="v-item__icon" src={capacityIcon} />
+          Engine Capacity{' '}
+          {renderIcons && <img className="v-item__icon" src={capacityIcon} />}
         </h4>
         <p className="v-item__text">
           <span className="v-item__value">{vehicle.engineCapacity}</span>{' '}
