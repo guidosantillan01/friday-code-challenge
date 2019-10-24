@@ -116,11 +116,13 @@
   text-transform: uppercase;
   letter-spacing: 0.12rem;
 
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  border-bottom: solid rgb(207, 207, 207) 1px;
 }
 
 .v-item__text {
@@ -150,9 +152,12 @@
 .v-item__icon {
   width: 28px;
   opacity: 0.5;
+  margin-bottom: 2px;
 }
 
 .v-item__engine-power {
   display: flex;
   justify-content: space-evenly;
+
+  margin-bottom: -7px;
 }
