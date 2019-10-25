@@ -61,7 +61,6 @@ yarn-error.log
 # Build output
 .awcache/
 dist/
-public/
 web/public/
 
 # Auto-generated  intl assets
