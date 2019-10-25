@@ -8,7 +8,7 @@ import capacityIcon from '../static/capacity.png';
 
 const renderIcons = true;
 
-const VehicleItem = ({ vehicle }) => {
+const VehicleItem = ({ vehicle = {} }) => {
   return (
     <div className="v-item__container">
       <div>

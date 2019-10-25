@@ -1,6 +1,6 @@
 import React from 'react';
 
-const selector = (onChangeHandler, options) => {
+const selector = (onChangeHandler, options = []) => {
   return (
     <div>
       <select onChange={onChangeHandler} className="v-selector">

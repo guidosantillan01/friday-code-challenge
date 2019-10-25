@@ -2,7 +2,7 @@ import React from 'react';
 
 import VehicleItem from './VehicleItem';
 
-const VehiclesList = ({ vehicles, message }) => {
+const VehiclesList = ({ vehicles = [], message = true }) => {
   return (
     <div>
       <div className="v-list__container">
