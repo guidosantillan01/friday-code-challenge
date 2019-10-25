@@ -61,6 +61,7 @@ npm run app
 - [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro) - Builds on top of DOM Testing Library by adding APIs for working with React components.
 - [@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom) - Provides a set of custom jest matchers that you can use to extend jest.
 - [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- [Postman]
 
 ## Improvements
 
@@ -71,6 +72,7 @@ npm run app
 1. Implement **order by** feature
 1. Add **more test** cases.
 1. Load **pictures** for each vehicle model.
+1. Implement the **7–1 Sass/SCSS Pattern**.
 
 ## Author
 
