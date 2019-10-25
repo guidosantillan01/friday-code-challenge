@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import VehiclesList from './VehiclesList';
 import VehiclesSelector from './VehiclesSelector';
+import Message from './Message';
 
 const GET_MAKES_API = 'http://localhost:8080/api/makes';
 const GET_MODELS_API = 'http://localhost:8080/api/models';
@@ -13,9 +14,9 @@ export class Vehicles extends Component {
     super(props);
 
     this.state = {
-      error: null,
-      isLoaded: false,
-      message: true,
+      apiError: false,
+      isLoading: true,
+      showMessage: true,
       makes: ['-'],
       models: ['-'],
       vehicles: [],
@@ -28,18 +29,29 @@ export class Vehicles extends Component {
     this.tryToFetchMakes(API_CALL_TRIES);
   }
 
+  handleAPIConnectionError = err => {
+    this.setState({
+      apiError: true
+    });
+    throw err;
+  };
+
   tryToFetchMakes = async numberOfTries => {
     try {
       return await fetch(GET_MAKES_API)
         .then(res => res.json())
         .then(result => {
           this.setState({
-            makes: ['-', ...result]
+            makes: ['-', ...result],
+            apiError: false,
+            isLoading: false
           });
         });
     } catch (err) {
       console.log(numberOfTries);
-      if (numberOfTries === 1) throw err;
+      if (numberOfTries === 1) {
+        this.handleAPIConnectionError(err);
+      }
       return await this.tryToFetchMakes(numberOfTries - 1);
     }
   };
@@ -50,12 +62,16 @@ export class Vehicles extends Component {
         .then(res => res.json())
         .then(result => {
           this.setState({
-            models: ['-', ...result]
+            models: ['-', ...result],
+            apiError: false,
+            isLoading: false
           });
         });
     } catch (err) {
       console.log(numberOfTries);
-      if (numberOfTries === 1) throw err;
+      if (numberOfTries === 1) {
+        this.handleAPIConnectionError(err);
+      }
       return await this.tryToFetchModels(numberOfTries - 1);
     }
   };
@@ -69,13 +85,17 @@ export class Vehicles extends Component {
         .then(res => res.json())
         .then(result => {
           this.setState({
-            isLoaded: true,
-            vehicles: result
+            vehicles: result,
+            apiError: false,
+            isLoading: false,
+            showMessage: false
           });
         });
     } catch (err) {
       console.log(numberOfTries);
-      if (numberOfTries === 1) throw err;
+      if (numberOfTries === 1) {
+        this.handleAPIConnectionError(err);
+      }
       return await this.tryToFetchVehicles(numberOfTries - 1);
     }
   };
@@ -87,7 +107,7 @@ export class Vehicles extends Component {
         userMake,
         userModel: undefined,
         vehicles: [],
-        message: false
+        isLoading: true
       },
       () => {
         this.tryToFetchModels(API_CALL_TRIES);
@@ -99,7 +119,9 @@ export class Vehicles extends Component {
     const userModel = e.target.value;
     this.setState(
       {
-        userModel
+        userModel,
+        apiError: false,
+        isLoading: true
       },
       () => {
         this.tryToFetchVehicles(API_CALL_TRIES);
@@ -116,9 +138,14 @@ export class Vehicles extends Component {
           selectVehicleMake={this.selectVehicleMake}
           selectVehicleModel={this.selectVehicleModel}
         />
+        <Message
+          apiError={this.state.apiError}
+          isLoading={this.state.isLoading}
+          showMessage={this.state.showMessage}
+        />
         <VehiclesList
           vehicles={this.state.vehicles}
-          message={this.state.message}
+          message={this.state.showMessage}
         />
       </div>
     );

@@ -75,20 +75,6 @@
   margin: 2rem 0;
 }
 
-.v-list__message {
-  font-size: 1.2rem;
-  text-align: center;
-
-  color: white;
-  background-color: rgb(126, 87, 194);
-
-  border-radius: 100px;
-
-  width: 60vw;
-  margin-top: 2rem;
-  padding: 1.5rem;
-}
-
 // VehicleItem
 .v-item__container {
   min-width: $min-v-item-width;
@@ -172,4 +158,38 @@
   justify-content: space-evenly;
 
   margin-bottom: -7px;
+}
+
+// Message
+@mixin message {
+  font-size: 1.2rem;
+  text-align: center;
+
+  border-radius: 100px;
+
+  width: 60vw;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 1.5rem;
+}
+
+.message--api-error {
+  @include message;
+
+  color: #9f3a38;
+  background-color: #fbe9e9;
+}
+
+.message--info {
+  @include message;
+
+  color: white;
+  background-color: #7e57c2;
+}
+
+.message--loading {
+  @include message;
+
+  color: #7e57c2;
+  background-color: #ffe24f;
 }

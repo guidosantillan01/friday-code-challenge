@@ -40,21 +40,17 @@ describe('Vehicle List', () => {
 
   test('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<VehiclesList vehicles={vehicles} message={true} />, div);
+    ReactDOM.render(<VehiclesList vehicles={vehicles} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   test('should render VehiclesList correctly', () => {
-    const { container } = render(
-      <VehiclesList vehicles={vehicles} message={true} />
-    );
+    const { container } = render(<VehiclesList vehicles={vehicles} />);
     expect(container).toMatchSnapshot();
   });
 
   test('should render the correct number of VehicleItem components', () => {
-    const { getByText } = render(
-      <VehiclesList vehicles={vehicles} message={true} />
-    );
+    const { getByText } = render(<VehiclesList vehicles={vehicles} />);
     expect(getByText('Tesla Model S')).toBeInTheDocument();
     expect(getByText('Tesla Model 3')).toBeInTheDocument();
     expect(getByText('Tesla Model X')).toBeInTheDocument();
