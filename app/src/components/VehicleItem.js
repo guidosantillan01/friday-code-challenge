@@ -21,7 +21,7 @@ const VehicleItem = ({ vehicle = {} }) => {
       </div>
 
       <div className="v-item__field">
-        <h3 className="v-item__title">
+        <h3 className="v-item__title" data-testid="vehicle-model">
           {vehicle.make} {vehicle.model}
         </h3>
       </div>
@@ -33,7 +33,7 @@ const VehicleItem = ({ vehicle = {} }) => {
             <img className="v-item__icon" alt="power icon" src={powerIcon} />
           )}
         </h4>
-        <div className="v-item__engine-power">
+        <div className="v-item__engine-power" data-testid="vehicle-power">
           <p className="v-item__text">
             <span className="v-item__value">{vehicle.enginePowerPS}</span>{' '}
             <span className="v-item__unit">HP</span>
@@ -53,7 +53,9 @@ const VehicleItem = ({ vehicle = {} }) => {
           )}
         </h4>
 
-        <p className="v-item__text">{vehicle.fuelType}</p>
+        <p className="v-item__text" data-testid="vehicle-fuel">
+          {vehicle.fuelType}
+        </p>
       </div>
 
       <div className="v-item__field">
@@ -63,7 +65,9 @@ const VehicleItem = ({ vehicle = {} }) => {
             <img className="v-item__icon" alt="body icon" src={bodyIcon} />
           )}
         </h4>
-        <p className="v-item__text">{vehicle.bodyType}</p>
+        <p className="v-item__text" data-testid="vehicle-body">
+          {vehicle.bodyType}
+        </p>
       </div>
 
       <div className="v-item__field">
@@ -77,7 +81,7 @@ const VehicleItem = ({ vehicle = {} }) => {
             />
           )}
         </h4>
-        <p className="v-item__text">
+        <p className="v-item__text" data-testid="vehicle-capacity">
           <span className="v-item__value">{vehicle.engineCapacity}</span>{' '}
           <span className="v-item__unit">cc</span>
         </p>

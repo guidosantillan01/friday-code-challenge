@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vehicle Item should render VehicleItem correctly 1`] = `
+<div>
+  <div
+    class="v-item__container"
+  >
+    <div>
+      <img
+        alt="auto"
+        class="v-item__image"
+        src="auto.png"
+        title="auto"
+      />
+    </div>
+    <div
+      class="v-item__field"
+    >
+      <h3
+        class="v-item__title"
+        data-testid="vehicle-model"
+      >
+        Tesla
+         
+        Model S
+      </h3>
+    </div>
+    <div
+      class="v-item__field"
+    >
+      <h4
+        class="v-item__subtitle"
+      >
+        Engine Power
+         
+        <img
+          alt="power icon"
+          class="v-item__icon"
+          src="power.png"
+        />
+      </h4>
+      <div
+        class="v-item__engine-power"
+        data-testid="vehicle-power"
+      >
+        <p
+          class="v-item__text"
+        >
+          <span
+            class="v-item__value"
+          >
+            184
+          </span>
+           
+          <span
+            class="v-item__unit"
+          >
+            HP
+          </span>
+        </p>
+        <p
+          class="v-item__text"
+        >
+          <span
+            class="v-item__value"
+          >
+            135
+          </span>
+           
+          <span
+            class="v-item__unit"
+          >
+            KW
+          </span>
+        </p>
+      </div>
+    </div>
+    <div
+      class="v-item__field"
+    >
+      <h4
+        class="v-item__subtitle"
+      >
+        Fuel Type
+         
+        <img
+          alt="fuel icon"
+          class="v-item__icon"
+          src="fuel.png"
+        />
+      </h4>
+      <p
+        class="v-item__text"
+        data-testid="vehicle-fuel"
+      >
+        Electric
+      </p>
+    </div>
+    <div
+      class="v-item__field"
+    >
+      <h4
+        class="v-item__subtitle"
+      >
+        Vehicle Body Type
+         
+        <img
+          alt="body icon"
+          class="v-item__icon"
+          src="body.png"
+        />
+      </h4>
+      <p
+        class="v-item__text"
+        data-testid="vehicle-body"
+      >
+        Sedan
+      </p>
+    </div>
+    <div
+      class="v-item__field"
+    >
+      <h4
+        class="v-item__subtitle"
+      >
+        Engine Capacity
+         
+        <img
+          alt="capacity icon"
+          class="v-item__icon"
+          src="capacity.png"
+        />
+      </h4>
+      <p
+        class="v-item__text"
+        data-testid="vehicle-capacity"
+      >
+        <span
+          class="v-item__value"
+        >
+          3000
+        </span>
+         
+        <span
+          class="v-item__unit"
+        >
+          cc
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
