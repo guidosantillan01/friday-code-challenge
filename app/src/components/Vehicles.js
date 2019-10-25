@@ -130,23 +130,29 @@ export class Vehicles extends Component {
   };
 
   render() {
+    const {
+      makes,
+      models,
+      apiError,
+      isLoading,
+      showMessage,
+      vehicles
+    } = this.state;
+
     return (
       <div>
         <VehiclesSelector
-          makes={this.state.makes}
-          models={this.state.models}
+          makes={makes}
+          models={models}
           selectVehicleMake={this.selectVehicleMake}
           selectVehicleModel={this.selectVehicleModel}
         />
         <Message
-          apiError={this.state.apiError}
-          isLoading={this.state.isLoading}
-          showMessage={this.state.showMessage}
+          apiError={apiError}
+          isLoading={isLoading}
+          showMessage={showMessage}
         />
-        <VehiclesList
-          vehicles={this.state.vehicles}
-          message={this.state.showMessage}
-        />
+        <VehiclesList vehicles={vehicles} />
       </div>
     );
   }
