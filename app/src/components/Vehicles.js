@@ -51,7 +51,6 @@ export class Vehicles extends Component {
           });
         });
     } catch (err) {
-      console.log(numberOfTries);
       if (numberOfTries === 1) {
         this.handleAPIConnectionError(err);
       }
@@ -71,7 +70,6 @@ export class Vehicles extends Component {
           });
         });
     } catch (err) {
-      console.log(numberOfTries);
       if (numberOfTries === 1) {
         this.handleAPIConnectionError(err);
       }
@@ -95,7 +93,6 @@ export class Vehicles extends Component {
           });
         });
     } catch (err) {
-      console.log(numberOfTries);
       if (numberOfTries === 1) {
         this.handleAPIConnectionError(err);
       }
