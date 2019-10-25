@@ -5,7 +5,7 @@ import VehicleItem from './VehicleItem';
 const VehiclesList = ({ vehicles = [] }) => {
   return (
     <div className="v-list__container">
-      {vehicles.map(vehicle => {
+      {vehicles.slice(0, 10).map(vehicle => {
         return <VehicleItem vehicle={vehicle} />;
       })}
     </div>

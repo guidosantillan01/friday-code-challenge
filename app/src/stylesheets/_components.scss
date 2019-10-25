@@ -40,6 +40,12 @@
   justify-content: center;
 
   margin: 1rem 0;
+
+  @media (max-width: 520px) {
+    align-items: center;
+    flex-grow: 1;
+    flex-direction: column;
+  }
 }
 
 .v-selector {
@@ -61,6 +67,12 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
+
+  @media (max-width: 520px) {
+    font-size: 1.2rem;
+
+    min-width: 50vw;
+  }
 }
 
 // VehicleList
@@ -93,6 +105,11 @@
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     // cursor: pointer;
+  }
+
+  @media (max-width: 820px) {
+    min-width: 60vw;
+    margin-right: 0;
   }
 }
 
@@ -145,6 +162,12 @@
 .v-item__image {
   min-width: $min-v-item-width;
   max-width: $max-v-item-width;
+  margin: 0 auto;
+
+  @media (max-width: 320px) {
+    width: 70vw;
+    // margin-right: 0;
+  }
 }
 
 .v-item__icon {
