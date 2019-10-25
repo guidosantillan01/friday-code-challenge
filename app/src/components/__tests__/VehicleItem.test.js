@@ -12,7 +12,7 @@ const vehicle = {
   enginePowerKW: '135',
   fuelType: 'Electric',
   bodyType: 'Sedan',
-  engineCapacity: '3000'
+  engineCapacity: '---'
 };
 
 describe('Vehicle Item', () => {
@@ -45,6 +45,6 @@ describe('Vehicle Item', () => {
     expect(getByTestId('vehicle-power')).not.toHaveTextContent('');
     expect(getByTestId('vehicle-fuel')).toHaveTextContent('Electric');
     expect(getByTestId('vehicle-body')).toHaveTextContent('Sedan');
-    expect(getByTestId('vehicle-capacity')).toHaveTextContent('3000 cc');
+    expect(getByTestId('vehicle-capacity')).toHaveTextContent('---');
   });
 });

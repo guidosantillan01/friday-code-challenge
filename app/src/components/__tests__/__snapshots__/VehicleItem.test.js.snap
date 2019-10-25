@@ -138,7 +138,7 @@ exports[`Vehicle Item should render VehicleItem correctly 1`] = `
         <span
           class="v-item__value"
         >
-          3000
+          ---
         </span>
          
         <span
