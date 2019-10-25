@@ -13,8 +13,17 @@ const vehicle = {
   engineCapacity: '3000'
 };
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<VehicleItem vehicle={vehicle} />, div);
-  ReactDOM.unmountComponentAtNode(div);
+let container = null;
+beforeEach(() => {
+  container = document.createElement('div');
+  document.body.appendChild(container);
+  ReactDOM.render(<VehicleItem vehicle={vehicle} />, container);
 });
+
+afterEach(() => {
+  ReactDOM.unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+it('renders without crashing', () => {});
