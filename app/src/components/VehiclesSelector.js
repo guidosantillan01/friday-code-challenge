@@ -24,7 +24,7 @@ const VehicleSelector = ({
 }) => {
   return (
     <div>
-      <h2 className="App__subtitle">Selector for Vehicles</h2>
+      <h2 className="App__subtitle">Vehicle Selector</h2>
 
       <div className="v-selector__container">
         {selector(selectVehicleMake, makes)}

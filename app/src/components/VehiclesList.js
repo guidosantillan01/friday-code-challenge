@@ -12,11 +12,11 @@ const VehiclesList = ({ vehicles = [], message = true }) => {
           })
         ) : message ? (
           <p className="v-list__message">
-            Select your vehicle manufacturer and model!
+            Select your vehicle manufacturer and model
           </p>
         ) : (
           <p className="v-list__message">
-            No vehicles could be found. Try another option.
+            No vehicles could be found. Try another option
           </p>
         )}
       </div>
