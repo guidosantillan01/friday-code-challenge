@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import '@testing-library/jest-dom/extend-expect';
 import { render, cleanup } from '@testing-library/react';
 
@@ -16,6 +17,12 @@ const vehicle = {
 
 describe('Vehicle Item', () => {
   afterEach(cleanup);
+
+  test('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<VehicleItem vehicle={vehicle} />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
 
   test('should render VehicleItem correctly', () => {
     const { container } = render(<VehicleItem vehicle={vehicle} />);

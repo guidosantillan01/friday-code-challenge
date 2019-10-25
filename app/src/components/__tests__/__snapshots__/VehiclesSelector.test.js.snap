@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vehicle Selector should render VehiclesSelector correctly 1`] = `
+<div>
+  <div>
+    <h2
+      class="App__subtitle"
+    >
+      Vehicle Selector
+    </h2>
+    <div
+      class="v-selector__container"
+    >
+      <div>
+        <select
+          class="v-selector"
+        >
+          <option
+            value="BWM"
+          >
+            BWM
+          </option>
+          <option
+            value="Ford"
+          >
+            Ford
+          </option>
+          <option
+            value="Tesla"
+          >
+            Tesla
+          </option>
+        </select>
+      </div>
+      <div>
+        <select
+          class="v-selector"
+        >
+          <option
+            value="Model S"
+          >
+            Model S
+          </option>
+          <option
+            value="Model 3"
+          >
+            Model 3
+          </option>
+          <option
+            value="Model X"
+          >
+            Model X
+          </option>
+          <option
+            value="Model Y"
+          >
+            Model Y
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+`;
