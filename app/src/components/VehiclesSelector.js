@@ -1,6 +1,6 @@
 import React from 'react';
 
-const selector = (onChangeHandler, options = []) => {
+const renderSelectForm = (onChangeHandler, options = []) => {
   return (
     <div>
       <select onChange={onChangeHandler} className="v-selector">
@@ -27,8 +27,8 @@ const VehicleSelector = ({
       <h2 className="App__subtitle">Vehicle Selector</h2>
 
       <div className="v-selector__container">
-        {selector(selectVehicleMake, makes)}
-        {selector(selectVehicleModel, models)}
+        {renderSelectForm(selectVehicleMake, makes)}
+        {renderSelectForm(selectVehicleModel, models)}
       </div>
     </div>
   );
