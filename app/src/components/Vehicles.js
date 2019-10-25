@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import VehiclesList from './VehiclesList';
 import VehiclesSelector from './VehiclesSelector';
 import Message from './Message';
+import Pagination from './Pagination';
 
 const GET_MAKES_API = 'http://localhost:8080/api/makes';
 const GET_MODELS_API = 'http://localhost:8080/api/models';
@@ -21,7 +22,9 @@ export class Vehicles extends Component {
       models: ['-'],
       vehicles: [],
       userMake: undefined,
-      userModel: undefined
+      userModel: undefined,
+      currentPage: 1,
+      vehiclesPerPage: 20
     };
   }
 
@@ -129,6 +132,13 @@ export class Vehicles extends Component {
     );
   };
 
+  paginate = (e, pageNumber) => {
+    e.preventDefault();
+    this.setState({
+      currentPage: pageNumber
+    });
+  };
+
   render() {
     const {
       makes,
@@ -136,8 +146,18 @@ export class Vehicles extends Component {
       apiError,
       isLoading,
       showMessage,
-      vehicles
+      vehicles,
+      vehiclesPerPage,
+      currentPage
     } = this.state;
+
+    const indexOfLastVehicle = currentPage * vehiclesPerPage;
+    const indexOfFirstVehicle = indexOfLastVehicle - vehiclesPerPage;
+
+    const currentVehicles = vehicles.slice(
+      indexOfFirstVehicle,
+      indexOfLastVehicle
+    );
 
     return (
       <div>
@@ -152,7 +172,12 @@ export class Vehicles extends Component {
           isLoading={isLoading}
           showMessage={showMessage}
         />
-        <VehiclesList vehicles={vehicles} />
+        <Pagination
+          vehiclesPerPage={vehiclesPerPage}
+          totalVehicles={vehicles.length}
+          paginate={this.paginate}
+        />
+        <VehiclesList vehicles={currentVehicles} />
       </div>
     );
   }

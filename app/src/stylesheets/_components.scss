@@ -84,7 +84,7 @@
   justify-content: center;
   align-items: flex-start;
 
-  margin: 2rem 0;
+  margin: 1.5em 0;
 }
 
 // VehicleItem
@@ -215,4 +215,53 @@
 
   color: #7e57c2;
   background-color: #ffe24f;
+}
+
+//Pagination
+.pagination {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  box-sizing: border-box;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-item {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.page-link {
+  font-size: 1rem;
+  font-weight: 400;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  cursor: pointer;
+  margin-left: 0;
+  border-top: 0.25rem;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
 }

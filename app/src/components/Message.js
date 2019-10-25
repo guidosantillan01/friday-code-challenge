@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import ErrorMessage from './ErrorMessage';
 import LoadingMessage from './LoadingMessage';
@@ -6,7 +6,7 @@ import InfoMessage from './InfoMessage';
 
 const Message = ({ apiError, isLoading, showMessage }) => {
   return (
-    <div>
+    <Fragment>
       {apiError ? (
         <ErrorMessage />
       ) : isLoading ? (
@@ -14,7 +14,7 @@ const Message = ({ apiError, isLoading, showMessage }) => {
       ) : showMessage ? (
         <InfoMessage />
       ) : null}
-    </div>
+    </Fragment>
   );
 };
 
