@@ -29,7 +29,9 @@ const VehicleItem = ({ vehicle = {} }) => {
       <div className="v-item__field">
         <h4 className="v-item__subtitle">
           Engine Power{' '}
-          {renderIcons && <img className="v-item__icon" src={powerIcon} />}
+          {renderIcons && (
+            <img className="v-item__icon" alt="power icon" src={powerIcon} />
+          )}
         </h4>
         <div className="v-item__engine-power">
           <p className="v-item__text">
@@ -46,7 +48,9 @@ const VehicleItem = ({ vehicle = {} }) => {
       <div className="v-item__field">
         <h4 className="v-item__subtitle">
           Fuel Type{' '}
-          {renderIcons && <img className="v-item__icon" src={fuelIcon} />}
+          {renderIcons && (
+            <img className="v-item__icon" alt="fuel icon" src={fuelIcon} />
+          )}
         </h4>
 
         <p className="v-item__text">{vehicle.fuelType}</p>
@@ -55,7 +59,9 @@ const VehicleItem = ({ vehicle = {} }) => {
       <div className="v-item__field">
         <h4 className="v-item__subtitle">
           Vehicle Body Type{' '}
-          {renderIcons && <img className="v-item__icon" src={bodyIcon} />}
+          {renderIcons && (
+            <img className="v-item__icon" alt="body icon" src={bodyIcon} />
+          )}
         </h4>
         <p className="v-item__text">{vehicle.bodyType}</p>
       </div>
@@ -63,7 +69,13 @@ const VehicleItem = ({ vehicle = {} }) => {
       <div className="v-item__field">
         <h4 className="v-item__subtitle">
           Engine Capacity{' '}
-          {renderIcons && <img className="v-item__icon" src={capacityIcon} />}
+          {renderIcons && (
+            <img
+              className="v-item__icon"
+              alt="capacity icon"
+              src={capacityIcon}
+            />
+          )}
         </h4>
         <p className="v-item__text">
           <span className="v-item__value">{vehicle.engineCapacity}</span>{' '}
